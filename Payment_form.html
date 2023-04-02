@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+</head>
+<body>
+    <form action = "">      <!-- action has location of server -->
+        <h1>Payment form</h1>
+        <h2>Contact Info</h2>
+        <p>Required fields are followed by *</p>
+        <p>
+            Name: * <input type = "text" name = "name" required>
+        </p>
+        <fieldset>
+            <legend>Gender</legend>
+            <p>
+                Male <input type = "radio" name = "gender" id = "male">
+                Female <input type = "radio" name = "gender" id = "female">
+                <!--We could have put diff names in male and female but then the sys would think these are different categories and user can select multiple of them-->
+            </p>
+        </fieldset>
+        <p>
+            Address: <textarea name = "address" id = "address" cols = "100" rows = "8"></textarea></p>
+        <p>
+            Email: * <input type = "email" name = "Email" id = "email" required></input>
+        </p>
+        <p>
+            Pincode: * <input type="number" name = "pincode" id = "pincode">
+        </p>
+        <hr>
+        <h2>Payment Information</h2>
+        <p>
+            Card Type: *
+            <select name="card_type" id="card_type" required>
+                <option value="">--Select a Card Type</option>
+                <option value="visa">Visa</option>
+                <option value="rupay">RuPay</option>
+                <option value="mastercard">MasterCard</option>
+            </select>
+        </p>
+        <p>
+            Card Number: *<input type="number" name = "card_number" id = "card_number" required>
+        </p>
+        <p>
+            Expiration Date: *<input type="date" name="exp_date" id="exp_date" required>
+        </p>
+        <p>
+            CVV: *<input type = "password" name="cvv" id="cvv" required>
+        </p>
+        <p>
+            cb: <input type="image" name="img" id="img">
+        </p>
+        <input type="submit" value="Pay Now" name="submit" id="submit">
+    </form>
+</body>
+</html>
