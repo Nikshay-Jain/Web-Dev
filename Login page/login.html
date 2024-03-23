@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fade-in 1s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: #666666;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 95%;
+      padding: 8px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 8px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      text-align: center;
+      color: #ff0000;
+      margin-top: 10px;
+    }
+    
+    .show-password-icon {
+      position: absolute;
+      top: 1px;
+      right: 2px;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+    }
+    
+    .social-media-icons {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .social-media-icons img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .container {
+      animation: fade-in 1s ease-out;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Animation for the social media icons */
+    .social-media-icons img {
+      transition: transform 0.3s ease-out;
+    }
+
+    .social-media-icons img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <div style="position: relative;">
+        <input type="password" id="password" name="password" required>
+        <img class="show-password-icon" src="show.png" alt="Show/Hide Password">
+      </div>
+
+      <div class="remember-me">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe">Remember me</label>
+      </div>
+
+      <input type="submit" value="Login">
+    </form>
+    <p class="message" id="loginMessage"></p>
+    <div class="social-media-icons">
+      <img src="google-icon.png" alt="Google" onclick="loginWithSocialMedia('Google')">
+      <img src="facebook-icon.png" alt="Facebook" onclick="loginWithSocialMedia('Facebook')">
+      <img src="instagram-icon.png" alt="Instagram" onclick="loginWithSocialMedia('Instagram')">
+    </div>
+    <p><a href="#" id="forgotPasswordLink">Forgot password?</a></p>
+  </div>
+</body>
+</html>
