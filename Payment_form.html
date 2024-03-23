@@ -5,35 +5,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        fieldset {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url("arrow.png") no-repeat;
+            background-position: right center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        input[type="radio"],
+        input[type="image"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p.required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
 </head>
+
 <body>
-    <form action = "">      <!-- action has location of server -->
-        <h1>Payment form</h1>
+    <form action="">      <!-- action has location of server -->
+        <h1>Payment Form</h1>
         <h2>Contact Info</h2>
-        <p>Required fields are followed by *</p>
+        <p>Required fields are followed by<span class="required">*</span></p>
         <p>
-            Name: * <input type = "text" name = "name" required>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" required>
         </p>
         <fieldset>
             <legend>Gender</legend>
             <p>
-                Male <input type = "radio" name = "gender" id = "male">
-                Female <input type = "radio" name = "gender" id = "female">
-                <!--We could have put diff names in male and female but then the sys would think these are different categories and user can select multiple of them-->
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
             </p>
         </fieldset>
         <p>
-            Address: <textarea name = "address" id = "address" cols = "100" rows = "8"></textarea></p>
-        <p>
-            Email: * <input type = "email" name = "Email" id = "email" required></input>
+            <label for="address">Address: </label>
+            <textarea name="address" id="address" cols="100" rows="8"></textarea>
         </p>
         <p>
-            Pincode: * <input type="number" name = "pincode" id = "pincode">
+            <label for="email">Email: </label>
+            <input type="email" name="Email" id="email" required>
+        </p>
+        <p>
+            <label for="pincode">Pincode: </label>
+            <input type="number" name="pincode" id="pincode">
         </p>
         <hr>
         <h2>Payment Information</h2>
         <p>
-            Card Type: *
+            <label for="card_type">Card Type: </label>
             <select name="card_type" id="card_type" required>
                 <option value="">--Select a Card Type</option>
                 <option value="visa">Visa</option>
@@ -42,16 +153,20 @@
             </select>
         </p>
         <p>
-            Card Number: *<input type="number" name = "card_number" id = "card_number" required>
+            <label for="card_number">Card Number: </label>
+            <input type="number" name="card_number" id="card_number" required>
         </p>
         <p>
-            Expiration Date: *<input type="date" name="exp_date" id="exp_date" required>
+            <label for="exp_date">Expiration Date: </label>
+            <input type="date" name="exp_date" id="exp_date" required>
         </p>
         <p>
-            CVV: *<input type = "password" name="cvv" id="cvv" required>
+            <label for="cvv">CVV: </label>
+            <input type="password" name="cvv" id="cvv" required>
         </p>
         <p>
-            cb: <input type="image" name="img" id="img">
+            <label for="img">Photo: </label>
+            <input type="image" name="img" id="img">
         </p>
         <input type="submit" value="Pay Now" name="submit" id="submit">
     </form>
