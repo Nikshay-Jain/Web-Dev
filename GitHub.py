@@ -30,7 +30,7 @@ try:
                 print(f"Added and committed: {file_path}")
         
     subprocess.run('git push -u origin main')
-    print("Repository Updated Successfully.")
+    print("\nRepository Updated Successfully.")
 
 except subprocess.CalledProcessError as e:
     print("Command execution failed.")
