@@ -1,23 +1,19 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-import time
+import os
+import pandas as pd
+from get_multiple import scrape
+from data_collector import get_data
 
-driver = webdriver.Firefox()
-driver.get("http://www.python.org")
+if __name__ == '__main__':
+    os.system("mkdir data")
+    scrape()
 
-# Verify title contains "Python"
-assert "Python" in driver.title
-print("✅ Assertion Passed: 'Python' is in the page title.")
-
-elem = driver.find_element(By.NAME, "q")
-elem.clear()
-elem.send_keys("pycon")
-elem.send_keys(Keys.RETURN)
-
-# Verify search results do not show "No results found."
-assert "No results found." not in driver.page_source
-print("✅ Assertion Passed: Search returned results.")
-
-time.sleep(3)
-driver.close()
+    data = {"Name": [], "Price": [], "Rating": [], "URL": []}
+    for file in os.listdir('data'):
+        d = get_data(open(f"data/{file}", 'r', encoding='utf-8').read())
+        data['Name'].append(d[0])
+        data['Price'].append(d[1])
+        data['Rating'].append(d[2])
+        data['URL'].append(d[3])
+        print(f"Data from data/{file} added to data.")
+        
+    pd.DataFrame(data).to_csv('data.csv', index=False)
