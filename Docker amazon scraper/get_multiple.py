@@ -3,7 +3,17 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 def scrape():
-    driver = webdriver.Firefox()
+    # Connect to the Selenium WebDriver running inside the container
+    firefox_options = webdriver.FirefoxOptions()
+    firefox_options.add_argument("--headless")  # Run without UI
+
+    driver = webdriver.Remote(
+        command_executor="http://localhost:4444/wd/hub",  # Connect to Docker WebDriver
+        options=firefox_options
+    )
+
+    # driver = webdriver.Firefox()
+    
     query = "laptops"
     file = 0
 
